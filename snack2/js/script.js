@@ -3,11 +3,11 @@
 // Infine, creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
 
 
-
+//creo l'array di oggetti contenenti le squadre
 const teamsList = [
     {
         "name": "team1",
-        "pointsCount": 100,
+        "pointsCount": 0,
         "foulsCount" : 0,
     },
 
@@ -34,13 +34,33 @@ const teamsList = [
         "pointsCount": 0,
         "foulsCount" : 0,
     },
-
 ]
 
-let points = Math.floor(Math.random() * 50) +1;
 
-let fouls = Math.floor(Math.random() * 50) +1;
+//ciclo che itera ogni elemento(oggetto) dell'array e in ognuno socvracrive il valore di pointsCount e foulsCount con il valore randomico generato dalla funzione corrispondente
+for (let i=0; i<teamsList.length; i++){
+    teamsList[i].pointsCount = points(1,100)
+    teamsList[i].foulsCount = fouls(1,40)
+}
 
-teamsList[i].pointsCount = points
+console.table(teamsList)
 
-console.log(teamsList[i].pointsCount);
+
+//crea un nuovo array contenente solo name e foulsCount
+let newArray = teamsList.map(team => ({
+    name: team.name,
+    falli: team.foulsCount
+}));
+
+console.table(newArray);
+
+
+
+//funzioni per la generazione casuale di un numero per punti e falli
+function points(min, max) {
+    return Math.floor(Math.random() * (max-min +1) + min);
+}
+
+function fouls(min, max) {
+    return Math.floor(Math.random() * (max-min +1) + min)
+}
