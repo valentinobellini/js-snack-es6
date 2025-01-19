@@ -44,28 +44,3 @@ let fouls = Math.floor(Math.random() * 50) +1;
 teamsList[i].pointsCount = points
 
 console.log(teamsList[i].pointsCount);
-
-
-
-
-
-
-
-
-
-
-// for ( let key in teamsList[i]){
-    
-// }
-
-
-
-
-
-// console.log(points);
-
-
-
-// const display = document.getElementById("display")
-
-// display.innerHTML = bicycleList[4].name
